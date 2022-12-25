@@ -14,16 +14,20 @@ function MoveTab(tabId, new_index){
   chrome.tabs.move(tabId, moveProperties);
 }
 
-chrome.commands.onCommand.addListener((command, tab) => {
+function GeneralListener(command, current_tab) {
   console.log(`Command: ${command} for tab ${tab}`);
 
   commands_mapping = {
     'PinTab': PinUnPinCurrentTab,
-    'MoveTabLeft': (current_tab) => {MoveTab(current_tab.id, current_tab.index - 1)} ,
-    'MoveTabRight': (current_tab) => {MoveTab(current_tab.id, current_tab.index + 1)},
+    'MoveTabLeft': (tab) => {MoveTab(tab.id, tab.index - 1)} ,
+    'MoveTabRight': (tab) => {MoveTab(tab.id, tab.index + 1)},
   }
 
   handler = commands_mapping[command]
-  handler(tab)
-});
+  handler(current_tab)
+}
+
+
+
+chrome.commands.onCommand.addListener(GeneralListener);
 
