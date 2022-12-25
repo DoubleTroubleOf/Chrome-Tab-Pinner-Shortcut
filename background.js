@@ -1,10 +1,10 @@
 
-function PinUnPinCurrentTab(current_tab){
-  console.log(current_tab);
+function PinUnPinCurrentTab(currentTab){
+  console.log(currentTab);
   const properties = {
-      "pinned": !current_tab.pinned,
+      "pinned": !currentTab.pinned,
   }
-  chrome.tabs.update(current_tab.id, properties);
+  chrome.tabs.update(currentTab.id, properties);
 }
 
 function MoveTab(tabId, new_index){
@@ -14,8 +14,8 @@ function MoveTab(tabId, new_index){
   chrome.tabs.move(tabId, moveProperties);
 }
 
-function GeneralListener(command, current_tab) {
-  console.log(`Command: ${command} for tab ${tab}`);
+function GeneralListener(command, currentTab) {
+  console.log(`Command: ${command} for tab ${currentTab}`);
 
   commands_mapping = {
     'PinTab': PinUnPinCurrentTab,
@@ -24,7 +24,7 @@ function GeneralListener(command, current_tab) {
   }
 
   handler = commands_mapping[command]
-  handler(current_tab)
+  handler(currentTab)
 }
 
 
