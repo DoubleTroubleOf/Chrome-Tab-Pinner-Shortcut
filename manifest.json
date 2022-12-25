@@ -12,13 +12,17 @@
       },
       "description": "Run \"PinTab\" on the current page."
     },
-    "_execute_action": {
+    "MoveTabLeft": {
       "suggested_key": {
-        "windows": "Ctrl+Shift+H",
-        "mac": "Command+Shift+H",
-        "chromeos": "Ctrl+Shift+H",
-        "linux": "Ctrl+Shift+H"
-      }
+        "default": "Ctrl+Shift+Left"
+      },
+      "description": "Run \"PinTab\" on the current page."
+    },
+    "MoveTabRight": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+Right"
+      },
+      "description": "Run \"PinTab\" on the current page."
     }
   },
   "background": {
